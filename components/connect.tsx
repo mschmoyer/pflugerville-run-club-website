@@ -2,6 +2,7 @@
 
 import { useReducedMotion, motion } from 'framer-motion';
 import { CLUB } from '@/lib/links';
+import { CalendarButton } from '@/components/calendar-button';
 
 const platforms = [
   {
@@ -67,7 +68,7 @@ export function Connect() {
         </motion.p>
 
         {/* Platform cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {platforms.map((platform, i) => (
             <motion.div
               key={platform.name}
@@ -120,6 +121,33 @@ export function Connect() {
               </a>
             </motion.div>
           ))}
+
+          {/* Calendar card */}
+          <motion.div
+            {...fadeUp(0.4)}
+            className="flex flex-col justify-between p-6 rounded-lg"
+            style={{
+              backgroundColor: 'var(--color-surface-2)',
+              border: '1px solid rgba(255,255,255,0.06)',
+              borderTop: '3px solid var(--color-brand)',
+            }}
+          >
+            <div>
+              <h3
+                className="text-2xl font-bold uppercase mb-3"
+                style={{ fontFamily: 'var(--font-oswald)', color: 'var(--color-text)' }}
+              >
+                Your Calendar
+              </h3>
+              <p
+                className="text-sm leading-relaxed mb-6"
+                style={{ color: 'var(--color-muted)' }}
+              >
+                Never miss a Saturday — add the weekly run to Google, Apple, Outlook, or Yahoo.
+              </p>
+            </div>
+            <CalendarButton fullWidth />
+          </motion.div>
         </div>
       </div>
     </section>

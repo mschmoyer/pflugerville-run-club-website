@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useReducedMotion, motion, type Variants } from 'framer-motion';
 import { MapPin } from 'lucide-react';
 import { CLUB } from '@/lib/links';
+import { CalendarButton } from '@/components/calendar-button';
 
 const ctaButtons = [
   {
@@ -267,6 +268,7 @@ export function Hero() {
               {btn.label}
             </a>
           ))}
+          <CalendarButton />
         </motion.div>
       </motion.div>
 
