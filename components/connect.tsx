@@ -9,18 +9,21 @@ const platforms = [
     description: 'Join 200+ members sharing runs, photos, and encouragement.',
     href: CLUB.facebook,
     label: 'Visit Facebook',
+    brandColor: '#1877F2',
   },
   {
     name: 'Meetup',
     description: 'RSVP for upcoming runs and see who is showing up each week.',
     href: CLUB.meetup,
     label: 'Visit Meetup',
+    brandColor: '#ED1C40',
   },
   {
     name: 'Strava Club',
     description: 'Track your runs, log miles, and see club activity.',
     href: CLUB.strava,
     label: 'Visit Strava',
+    brandColor: '#FC4C02',
   },
 ];
 
@@ -73,6 +76,7 @@ export function Connect() {
               style={{
                 backgroundColor: 'var(--color-surface-2)',
                 border: '1px solid rgba(255,255,255,0.06)',
+                borderTop: `3px solid ${platform.brandColor}`,
               }}
             >
               <div>
@@ -98,21 +102,18 @@ export function Connect() {
                 rel="noopener noreferrer"
                 className="inline-block text-center px-5 py-2.5 text-sm font-bold uppercase tracking-wide rounded border transition-all"
                 style={{
-                  color: 'var(--color-brand)',
-                  borderColor: 'var(--color-brand)',
+                  color: platform.brandColor,
+                  borderColor: platform.brandColor,
                   fontFamily: 'var(--font-oswald)',
                   backgroundColor: 'transparent',
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.backgroundColor =
-                    'var(--color-brand)';
+                  (e.currentTarget as HTMLElement).style.backgroundColor = platform.brandColor;
                   (e.currentTarget as HTMLElement).style.color = '#fff';
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.backgroundColor =
-                    'transparent';
-                  (e.currentTarget as HTMLElement).style.color =
-                    'var(--color-brand)';
+                  (e.currentTarget as HTMLElement).style.backgroundColor = 'transparent';
+                  (e.currentTarget as HTMLElement).style.color = platform.brandColor;
                 }}
               >
                 {platform.label}

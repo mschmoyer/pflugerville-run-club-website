@@ -2,23 +2,24 @@
 
 import Image from 'next/image';
 import { useReducedMotion, motion, type Variants } from 'framer-motion';
+import { MapPin } from 'lucide-react';
 import { CLUB } from '@/lib/links';
 
 const ctaButtons = [
   {
     label: 'Join on Meetup',
     href: CLUB.meetup,
-    primary: true,
+    brandColor: '#ED1C40',
   },
   {
     label: 'Find us on Facebook',
     href: CLUB.facebook,
-    primary: false,
+    brandColor: '#1877F2',
   },
   {
     label: 'Strava Club',
     href: CLUB.strava,
-    primary: false,
+    brandColor: '#FC4C02',
   },
 ];
 
@@ -110,9 +111,9 @@ export function Hero() {
           <Image
             src="/club-logo.png"
             alt={CLUB.name}
-            width={200}
-            height={200}
-            style={{ objectFit: 'contain', width: 'auto', height: '120px' }}
+            width={400}
+            height={400}
+            style={{ objectFit: 'contain', width: 'auto', height: '240px' }}
             priority
           />
         </motion.div>
@@ -168,7 +169,7 @@ export function Hero() {
           className="text-lg md:text-xl flex items-center gap-2"
           style={{ color: 'var(--color-muted)' }}
         >
-          <span>📍</span>
+          <MapPin className="w-5 h-5 flex-shrink-0" style={{ color: 'var(--color-brand)' }} />
           <span>{CLUB.location}, TX</span>
         </motion.p>
 
@@ -185,20 +186,17 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 font-bold uppercase tracking-wide rounded text-sm sm:text-base transition-all"
-              style={
-                btn.primary
-                  ? {
-                      backgroundColor: 'var(--color-brand)',
-                      color: '#fff',
-                      fontFamily: 'var(--font-oswald)',
-                    }
-                  : {
-                      backgroundColor: 'transparent',
-                      color: 'var(--color-text)',
-                      border: '1px solid rgba(255,255,255,0.3)',
-                      fontFamily: 'var(--font-oswald)',
-                    }
-              }
+              style={{
+                backgroundColor: btn.brandColor,
+                color: '#fff',
+                fontFamily: 'var(--font-oswald)',
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.opacity = '0.85';
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.opacity = '1';
+              }}
             >
               {btn.label}
             </a>

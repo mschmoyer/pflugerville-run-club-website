@@ -1,38 +1,15 @@
 'use client';
 
 import { useReducedMotion, motion } from 'framer-motion';
+import { Gift, Footprints, Sunrise, Handshake, CalendarDays, Dumbbell, type LucideIcon } from 'lucide-react';
 
-const items = [
-  {
-    emoji: '🆓',
-    title: "It's Free",
-    description: 'No fees, no sign-ups. Just show up and run.',
-  },
-  {
-    emoji: '🏃',
-    title: 'All Paces',
-    description: 'From walkers to speedsters — everyone belongs.',
-  },
-  {
-    emoji: '🌅',
-    title: 'Scenic Route',
-    description: '3-mile lake loop at sunrise. Hard to beat.',
-  },
-  {
-    emoji: '🤝',
-    title: 'Community',
-    description: 'Meet your new running friends every week.',
-  },
-  {
-    emoji: '📅',
-    title: 'Consistent',
-    description: 'Same time every Saturday, year-round.',
-  },
-  {
-    emoji: '💪',
-    title: 'Accountability',
-    description: 'Show up, get it done, feel amazing.',
-  },
+const items: { icon: LucideIcon; title: string; description: string }[] = [
+  { icon: Gift,         title: "It's Free",     description: 'No fees, no sign-ups. Just show up and run.' },
+  { icon: Footprints,   title: 'All Paces',      description: 'From walkers to speedsters — everyone belongs.' },
+  { icon: Sunrise,      title: 'Scenic Route',   description: '3-mile lake loop at sunrise. Hard to beat.' },
+  { icon: Handshake,    title: 'Community',      description: 'Meet your new running friends every week.' },
+  { icon: CalendarDays, title: 'Consistent',     description: 'Same time every Saturday, year-round.' },
+  { icon: Dumbbell,     title: 'Accountability', description: 'Show up, get it done, feel amazing.' },
 ];
 
 export function WhyRun() {
@@ -84,7 +61,7 @@ export function WhyRun() {
                   : { borderColor: 'var(--color-brand)', scale: 1.01 }
               }
             >
-              <div className="text-4xl mb-3">{item.emoji}</div>
+              <item.icon className="w-10 h-10 mb-3" style={{ color: 'var(--color-brand)' }} strokeWidth={1.5} />
               <h3
                 className="text-xl font-bold uppercase mb-1"
                 style={{
