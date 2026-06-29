@@ -1,6 +1,7 @@
 import { SiteHeader } from '@/components/site-header';
 import { Hero } from '@/components/hero';
 import { RunDetails } from '@/components/run-details';
+import { MapSection } from '@/components/map-section';
 import { WhyRun } from '@/components/why-run';
 import { Connect } from '@/components/connect';
 import { FAQ } from '@/components/faq';
@@ -13,6 +14,7 @@ export default function Home() {
       <main>
         <Hero />
         <RunDetails />
+        <MapSection />
         <WhyRun />
         <Connect />
         <FAQ />

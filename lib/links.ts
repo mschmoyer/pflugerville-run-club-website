@@ -9,5 +9,6 @@ export const CLUB = {
   meetup: 'https://www.meetup.com/pflugerville-running-club/',
   strava: 'https://www.strava.com/clubs/780280',
   mapLink: 'https://maps.google.com/?q=Lake+Pflugerville+TX',
+  mapEmbed: 'https://www.google.com/maps?q=30.4428682,-97.566095&z=15&t=k&output=embed',
   trailheadNote: 'Meet at the Lake Pflugerville main parking lot on Kelly Lane',
 };

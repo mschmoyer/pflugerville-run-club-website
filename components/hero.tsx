@@ -106,16 +106,82 @@ export function Hero() {
         initial="initial"
         animate="animate"
       >
-        {/* Logo */}
-        <motion.div variants={activeItemVariants} transition={{ duration: 0.5 }}>
-          <Image
-            src="/club-logo.png"
-            alt={CLUB.name}
-            width={400}
-            height={400}
-            style={{ objectFit: 'contain', width: 'auto', height: '240px' }}
-            priority
+        {/* Logo with glow + speed particles */}
+        <motion.div variants={activeItemVariants} transition={{ duration: 0.5 }} className="relative">
+          {/* Pulsing orange glow — extends well beyond logo bounds */}
+          <motion.div
+            aria-hidden="true"
+            className="absolute pointer-events-none"
+            style={{
+              top: '-80px',
+              left: '-80px',
+              right: '-80px',
+              bottom: '-80px',
+              background: 'radial-gradient(circle, rgba(255,85,0,0.65) 0%, rgba(255,85,0,0.2) 40%, transparent 70%)',
+              filter: 'blur(55px)',
+              zIndex: 0,
+            }}
+            animate={shouldReduceMotion ? {} : {
+              scale: [1, 1.2, 1],
+              opacity: [0.6, 1, 0.6],
+            }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
           />
+
+          {/* Speed streaks — span full logo height, clip horizontally only */}
+          {!shouldReduceMotion && (
+            <div
+              aria-hidden="true"
+              className="absolute pointer-events-none"
+              style={{ top: 0, left: '-40px', right: '-40px', bottom: 0, zIndex: 1, overflow: 'hidden' }}
+            >
+              {[
+                { top:  '3%', width: 28, height: 3, delay: 0,    duration: 1.1  },
+                { top: '12%', width: 18, height: 2, delay: 0.3,  duration: 0.9  },
+                { top: '21%', width: 36, height: 3, delay: 0.6,  duration: 1.3  },
+                { top: '30%', width: 22, height: 2, delay: 0.15, duration: 1.0  },
+                { top: '39%', width: 14, height: 2, delay: 0.8,  duration: 0.85 },
+                { top: '48%', width: 30, height: 3, delay: 0.45, duration: 1.2  },
+                { top: '57%', width: 24, height: 2, delay: 0.95, duration: 1.05 },
+                { top: '66%', width: 32, height: 3, delay: 0.7,  duration: 0.95 },
+                { top: '75%', width: 20, height: 2, delay: 0.25, duration: 1.15 },
+                { top: '84%', width: 16, height: 2, delay: 0.55, duration: 1.0  },
+                { top: '93%', width: 26, height: 3, delay: 0.4,  duration: 1.1  },
+              ].map((p, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute rounded-full"
+                  style={{
+                    top: p.top,
+                    left: 0,
+                    width: p.width,
+                    height: p.height,
+                    background: 'rgba(255,120,0,0.85)',
+                    filter: 'blur(1px)',
+                  }}
+                  animate={{ x: [-40, 320], opacity: [0, 1, 0] }}
+                  transition={{
+                    duration: p.duration,
+                    delay: p.delay,
+                    repeat: Infinity,
+                    ease: 'easeIn',
+                  }}
+                />
+              ))}
+            </div>
+          )}
+
+          {/* Logo — on top */}
+          <div className="relative" style={{ zIndex: 2 }}>
+            <Image
+              src="/club-logo.png"
+              alt={CLUB.name}
+              width={400}
+              height={400}
+              style={{ objectFit: 'contain', width: 'auto', height: '240px' }}
+              priority
+            />
+          </div>
         </motion.div>
 
         {/* Badge */}

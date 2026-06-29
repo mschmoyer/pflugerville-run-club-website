@@ -6,6 +6,7 @@ import { CLUB } from '@/lib/links';
 
 const navLinks = [
   { label: 'Run Details', href: '#run-details' },
+  { label: 'Map', href: '#map' },
   { label: 'Why Us', href: '#why-us' },
   { label: 'Community', href: '#community' },
   { label: 'FAQ', href: '#faq' },

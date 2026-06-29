@@ -16,14 +16,23 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://pfrunclub.com"),
   title: "Pflugerville Running Club | Saturdays 8AM at Lake Pflugerville",
   description:
     "Join Pflugerville's free running club every Saturday at 8:00 AM around beautiful Lake Pflugerville. All paces welcome.",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     title: "Pflugerville Running Club | Saturdays 8AM at Lake Pflugerville",
     description:
       "Join Pflugerville's free running club every Saturday at 8:00 AM around beautiful Lake Pflugerville. All paces welcome.",
     type: "website",
+    url: "https://pfrunclub.com",
+    siteName: "Pflugerville Running Club",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
