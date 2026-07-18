@@ -76,20 +76,6 @@ export function UpcomingRacesList({ races }: { races: RunClubRace[] }) {
                   borderTop: '3px solid var(--color-brand)',
                 }}
               >
-                {race.isAtLakePflugerville && (
-                  <span
-                    className="inline-block self-start text-xs uppercase tracking-widest font-semibold mb-3 px-2 py-1 rounded"
-                    style={{
-                      color: 'var(--color-brand)',
-                      backgroundColor: 'rgba(255, 85, 0, 0.12)',
-                      fontFamily: 'var(--font-oswald)',
-                      letterSpacing: '0.1em',
-                    }}
-                  >
-                    Lake Pflugerville
-                  </span>
-                )}
-
                 <h3
                   className="text-xl font-bold uppercase mb-2"
                   style={{ fontFamily: 'var(--font-oswald)', color: 'var(--color-text)' }}

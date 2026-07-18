@@ -2,7 +2,9 @@ import { getUpcomingRaces } from '@/lib/runsignup';
 import { UpcomingRacesList } from '@/components/upcoming-races-list';
 
 export async function UpcomingRaces() {
-  const races = await getUpcomingRaces();
+  const races = (await getUpcomingRaces()).filter(
+    (race) => race.isAtLakePflugerville,
+  );
 
   return (
     <section
