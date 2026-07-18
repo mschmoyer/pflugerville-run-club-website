@@ -2,6 +2,7 @@ import { SiteHeader } from '@/components/site-header';
 import { Hero } from '@/components/hero';
 import { RunDetails } from '@/components/run-details';
 import { MapSection } from '@/components/map-section';
+import { UpcomingRaces } from '@/components/upcoming-races';
 import { WhyRun } from '@/components/why-run';
 import { PhotoBanner } from '@/components/photo-banner';
 import { Connect } from '@/components/connect';
@@ -16,6 +17,7 @@ export default function Home() {
         <Hero />
         <RunDetails />
         <MapSection />
+        <UpcomingRaces />
         <WhyRun />
         <PhotoBanner />
         <Connect />

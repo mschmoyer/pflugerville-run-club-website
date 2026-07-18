@@ -12,3 +12,15 @@ export const CLUB = {
   mapEmbed: 'https://www.google.com/maps?q=30.4428682,-97.566095&z=15&t=k&output=embed',
   trailheadNote: 'Meet at the Lake Pflugerville main parking lot on Kelly Lane',
 };
+
+export const EVENTS = {
+  runSignupBaseUrl: 'https://runsignup.com/Rest/races',
+  city: 'Pflugerville',
+  state: 'TX',
+  resultsPerPage: 50,
+  revalidateSeconds: 3600,
+  // Substrings (lowercased) used to detect races held at Lake Pflugerville Park
+  lakeVenueMatchers: ['lake pflugerville', '18216 weiss'],
+  // Fallback link shown when no races are available
+  raceSearchUrl: 'https://runsignup.com/Races/TX/Pflugerville',
+};
